@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class AgeAndWeight extends StatelessWidget {
   String type;
   String result;
-  Function onClickSum;
-  Function onClickREmove;
+  void Function()? onPressedSum;
+  void Function()? onPressedDiff;
 
   AgeAndWeight(
       {required this.type,
-      required this.onClickSum,
-      required this.onClickREmove,
+      required this.onPressedSum,
+      required this.onPressedDiff,
       required this.result});
 
   @override
@@ -37,16 +37,12 @@ class AgeAndWeight extends StatelessWidget {
             children: [
               IconButton(
                   iconSize: 35,
-                  onPressed: () {
-                    onClickSum();
-                  },
+                  onPressed: onPressedSum,
                   icon: const Icon(Icons.add_circle),
                   color: Colors.orange),
               IconButton(
                 iconSize: 35,
-                onPressed: () {
-                  onClickREmove();
-                },
+                onPressed: onPressedDiff,
                 icon: const Icon(Icons.remove_circle),
                 color: Colors.orange,
               ),
