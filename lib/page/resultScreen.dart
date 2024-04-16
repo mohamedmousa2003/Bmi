@@ -50,6 +50,7 @@ class ResultScreen extends StatelessWidget {
               valueRadius: 100,
             ),
           ),
+          //expanded
           Expanded(
             child: Container(
               margin: const EdgeInsets.all(10),

@@ -23,7 +23,7 @@ class Circular extends StatelessWidget {
       animationDuration: 1000,
       center: Text(
         text,
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
       ),
       progressColor: Colors.orange,
     );

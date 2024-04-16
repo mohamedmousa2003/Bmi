@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   dataIcon: Icons.male,
                   type: "MALE",
                   color1: isClick ? Colors.orange : Colors.white,
-                  onDataReceived: () {
+                  onTap: () {
                     setState(() {
                       isClick = true;
                     });
@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   dataIcon: Icons.female,
                   type: "FEMALE",
                   color1: isClick ? Colors.white : Colors.orange,
-                  onDataReceived: () {
+                  onTap: () {
                     isClick = false;
                     setState(() {});
                   }),
@@ -105,22 +105,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     AgeAndWeight(
                         type: "Age",
-                        onClickSum: () {
+                        onPressedSum: () {
                           valueClickAge += clickAge;
                           setState(() {});
                         },
-                        onClickREmove: () {
+                        onPressedDiff: () {
                           valueClickAge -= clickAge;
                           setState(() {});
                         },
                         result: "$valueClickAge"),
                     AgeAndWeight(
                         type: "Weight",
-                        onClickSum: () {
+                        onPressedSum: () {
                           valueClickWeight += clickWeight;
                           setState(() {});
                         },
-                        onClickREmove: () {
+                        onPressedDiff: () {
                           valueClickWeight -= clickWeight;
                           setState(() {});
                         },

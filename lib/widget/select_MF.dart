@@ -3,22 +3,20 @@ import 'package:flutter/material.dart';
 class Select extends StatelessWidget {
   String type;
   IconData dataIcon;
-  Function onDataReceived;
+  void Function()? onTap;
   Color? color1;
 
   Select(
       {required this.dataIcon,
       required this.type,
       this.color1,
-      required this.onDataReceived});
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: InkWell(
-        onTap: () {
-          onDataReceived();
-        },
+        onTap: onTap,
         child: Container(
           padding: const EdgeInsets.only(top: 30),
           margin: const EdgeInsets.symmetric(horizontal: 8),
