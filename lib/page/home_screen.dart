@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:bmi/page/resultScreen.dart';
 import 'package:bmi/widget/ageandweight.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
@@ -71,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontSize: 30, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        "${sliderValue.toInt()}",
+                        "${sliderValue.round()}",
                         style: TextStyle(
                             fontSize: 30, fontWeight: FontWeight.bold),
                       ),
@@ -79,8 +82,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: MediaQuery.of(context).size.height * 0.45,
                         child: SfSlider.vertical(
                           min: 0.0,
-                          max: 250.0,
-                          value: sliderValue.toInt(),
+                          max: 199.0,
+                          value: sliderValue,
                           interval: 30,
                           showTicks: true,
                           showLabels: true,
@@ -129,7 +132,18 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           MaterialButton(
             color: Colors.orange,
-            onPressed: () {},
+            onPressed: () {
+              var result = valueClickWeight / pow(sliderValue / 100, 2);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ResultScreen(
+                      age: valueClickAge,
+                      height: sliderValue.toInt(),
+                      result: result,
+                    ),
+                  ));
+            },
             child: const Text(
               "Calculate",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
